@@ -14,6 +14,7 @@ abstract class ViewState<V extends View, VC extends ViewController>
   void initState() {
     super.initState();
 
+    viewController?.context = context;
     viewController?.init();
   }
 
@@ -26,6 +27,8 @@ abstract class ViewState<V extends View, VC extends ViewController>
 }
 
 abstract class ViewController {
+  BuildContext context;
+
   void init();
   void dispose();
 }
